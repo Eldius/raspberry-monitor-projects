@@ -1,10 +1,8 @@
 package network
 
 import (
-	"fmt"
 	"sync"
 
-	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/logger"
 	"github.com/sparrc/go-ping"
 )
 
@@ -16,13 +14,10 @@ func MultiplePingParallel(hosts []string, packets int) []PingResponse {
 	var wg sync.WaitGroup
 
 	for _, h := range hosts {
-		logger.Debug(fmt.Sprintf(" -> Starting a new ping request to %s", h))
 		wg.Add(1)
 		go SinglePingParallel(h, packets, &wg, ch)
 	}
-	logger.Debug("waiting for ping responses...")
 	wg.Wait()
-	logger.Debug("closing channel...")
 	close(ch)
 
 	s := make([]PingResponse, 0)
@@ -31,10 +26,8 @@ func MultiplePingParallel(hosts []string, packets int) []PingResponse {
 		if ok == false {
 			break
 		}
-		logger.Debug(fmt.Sprintf("appending %v response to slice...", value))
 		s = append(s, value)
 	}
-	logger.Debug("returning ping responses...")
 	return s
 }
 
@@ -43,7 +36,6 @@ SinglePingParallel executes a single ping call
 */
 func SinglePingParallel(host string, packets int, wg *sync.WaitGroup, ch chan PingResponse) {
 	defer wg.Done()
-	logger.Println("pinging", host)
 
 	pinger, err := ping.NewPinger(host)
 	if err != nil {
@@ -53,13 +45,9 @@ func SinglePingParallel(host string, packets int, wg *sync.WaitGroup, ch chan Pi
 	pinger.Count = packets
 	pinger.SetPrivileged(true)
 	pinger.Run() // blocks until finished
-	logger.Println("Finished pinging:", host)
 
 	response := parseToPingResponse(pinger.Statistics(), host)
-	logger.Println("Finished pinging 2:", host)
 	ch <- response
-	logger.Println("Finished pinging 3:", host)
-	//wg.Done()
 }
 
 func parseToPingResponse(stats *ping.Statistics, host string) PingResponse {
