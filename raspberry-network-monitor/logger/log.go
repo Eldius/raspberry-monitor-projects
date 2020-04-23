@@ -68,12 +68,12 @@ func Debug(obj interface{}) {
 Println prints message to log
 */
 func Println(v ...interface{}) {
-	log.Println(v)
+	log.Println(v...)
 }
 
 /*
 Printf prints message to log
 */
 func Printf(msg string, v ...interface{}) {
-	log.Printf(msg, v)
+	log.Printf(msg, v...)
 }
