@@ -42,4 +42,4 @@ jobs:
       run: 'curl -i -H "X-GPG-PASSPHRASE: ${{secrets.BINTRAY_SIGNIN_KEY}}" -X PUT -T raspberry-network-monitor/bin/network-monitor.linux.arm -ueldius:${{secrets.BINTRAY_SECRET_KEY}} "https://api.bintray.com/content/eldius/raspberry-tools/raspberry-network-monitor/development/network-monitor-go.linux.arm.$( git rev-parse --short HEAD );publish=1;override=1"'
 
     - name: Upload to Bintray Linux amd64
-      run: 'curl -i -H "X-GPG-PASSPHRASE: ${{secrets.BINTRAY_SIGNIN_KEY}}" -X PUT -T raspberry-network-monitor/bin/network-monitor.linux.amd64 -ueldius:${{secrets.BINTRAY_SECRET_KEY}} "https://api.bintray.com/content/eldius/raspberry-tools/raspberry-network-monitor/development/network-monitor-go.linux.amd64.$( git rev-parse --short HEAD )";publish=1;override=1"'
+      run: 'curl -i -H "X-GPG-PASSPHRASE: ${{secrets.BINTRAY_SIGNIN_KEY}}" -X PUT -T raspberry-network-monitor/bin/network-monitor.linux.amd64 -ueldius:${{secrets.BINTRAY_SECRET_KEY}} "https://api.bintray.com/content/eldius/raspberry-tools/raspberry-network-monitor/development/network-monitor-go.linux.amd64.$( git rev-parse --short HEAD );publish=1;override=1"'
