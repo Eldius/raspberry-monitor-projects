@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/Eldius/raspberry-network-monitor/cmd"
+import "github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd"
 
 func main() {
 	cmd.Execute()

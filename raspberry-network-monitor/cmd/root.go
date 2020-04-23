@@ -63,7 +63,7 @@ func initConfig() {
 		}
 
 		// Search config in home directory with name ".raspberry-network-monitor" (without extension).
-		viper.AddConfigPath(home)
+		//viper.AddConfigPath(home)
 		viper.AddConfigPath(filepath.Join(home, ".network-monitor"))
 		viper.SetConfigName("monitor")
 		viper.SetConfigType("yml")

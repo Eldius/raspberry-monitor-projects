@@ -10,3 +10,4 @@ cfg:
     host: localhost
     user: user
     pass: pass
+  qtdpackets: 4

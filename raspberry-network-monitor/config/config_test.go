@@ -39,6 +39,10 @@ func TestAppConfigLoad(t *testing.T) {
 		t.Errorf("Must have 5 hosts to ping (%v)", cfg.PingHosts)
 	}
 
+	if cfg.QtdPackets != 4 {
+		t.Errorf("Must send 4 packets to ping (%v)", cfg.QtdPackets)
+	}
+
 	if cfg.MQTT.Host != "localhost" {
 		t.Errorf("Host must be localhost (%v)", cfg.MQTT.Host)
 	}

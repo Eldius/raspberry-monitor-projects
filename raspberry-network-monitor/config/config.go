@@ -25,8 +25,9 @@ type PingHosts []string
 NetworkMonitorConfig is an abstraction for the app config
 */
 type NetworkMonitorConfig struct {
-	PingHosts PingHosts
-	MQTT      MQTTConfig
+	PingHosts  PingHosts
+	QtdPackets int
+	MQTT       MQTTConfig
 }
 
 /*
