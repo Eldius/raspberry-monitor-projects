@@ -1,0 +1,15 @@
+---
+cfg:
+  pinghosts:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 8.8.4.4
+    - 192.168.0.1
+    - 192.168.100.1
+  MQTT:
+    host: 192.168.100.14
+    port: 1884
+    clientname: raspberry-14
+    topic: network/sala
+    qos: 2
+  qtdpackets: 4

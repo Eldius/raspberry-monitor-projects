@@ -15,9 +15,16 @@ SendPingResponse sends the ping to MQTT broker
 func SendPingResponse(p network.PingResponse, cfg config.MQTTConfig) {
 	opts := MQTT.NewClientOptions()
 	opts.AddBroker(fmt.Sprintf("tcp://%s:%s", cfg.Host, cfg.Port))
+
 	opts.SetClientID(cfg.ClientName)
-	opts.SetUsername(cfg.User)
-	opts.SetPassword(cfg.Pass)
+
+	if cfg.User != "" {
+		opts.SetUsername(cfg.User)
+	}
+
+	if cfg.Pass != "" {
+		opts.SetPassword(cfg.Pass)
+	}
 	//opts.SetCleanSession(*cleansess)
 
 	client := MQTT.NewClient(opts)

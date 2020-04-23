@@ -2,6 +2,7 @@ package network
 
 import (
 	"sync"
+	"time"
 
 	"github.com/sparrc/go-ping"
 )
@@ -60,5 +61,6 @@ func parseToPingResponse(stats *ping.Statistics, host string) PingResponse {
 		PacketsReceived: stats.PacketsRecv,
 		ResponseTimes:   stats.Rtts,
 		Host:            host,
+		ExecutionTime:   time.Now(),
 	}
 }

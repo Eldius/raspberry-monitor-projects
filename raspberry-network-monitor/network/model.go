@@ -18,4 +18,5 @@ type PingResponse struct {
 
 	ResponseTimes []time.Duration
 	Host          string
+	ExecutionTime time.Time
 }
