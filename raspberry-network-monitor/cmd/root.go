@@ -35,6 +35,8 @@ func Execute() {
 	}
 }
 
+var publish *bool
+
 func init() {
 	cobra.OnInitialize(initConfig)
 
@@ -47,6 +49,9 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
+	publish = rootCmd.PersistentFlags().BoolP("publish", "p", false, "Publish results to MQTT broker")
+
 }
 
 // initConfig reads in config file and ENV variables if set.

@@ -11,9 +11,13 @@ import (
 MQTTConfig is a config abstraction for the MQTT client
 */
 type MQTTConfig struct {
-	Host string
-	User string
-	Pass string
+	Host       string
+	Port       string
+	User       string
+	Pass       string
+	ClientName string
+	Topic      string
+	Qos        byte
 }
 
 /*
