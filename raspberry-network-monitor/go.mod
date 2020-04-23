@@ -8,6 +8,6 @@ require (
 	github.com/sparrc/go-ping v0.0.0-20190613174326-4e5b6552494c
 	github.com/spf13/cobra v1.0.0
 	github.com/spf13/viper v1.6.3
-	golang.org/x/tools v0.0.0-20200422205258-72e4a01eba43 // indirect
-	gopkg.in/yaml.v2 v2.2.4
+	golang.org/x/tools v0.0.0-20200423181349-a466788a31bb // indirect
+	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
 )

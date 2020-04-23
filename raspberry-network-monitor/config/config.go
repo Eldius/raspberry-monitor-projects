@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/viper"
-	yml "gopkg.in/yaml.v2"
+	yml "gopkg.in/yaml.v3"
 )
 
 /*

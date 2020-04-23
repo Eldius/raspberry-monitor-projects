@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/config"
+	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/logger"
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/network"
 	MQTT "github.com/eclipse/paho.mqtt.golang"
 )
@@ -53,6 +54,7 @@ func serialize(obj interface{}) []byte {
 	if data, err := json.Marshal(obj); err != nil {
 		panic(err.Error())
 	} else {
+		logger.Debug(fmt.Sprintf("serialized:\n%s", string(data)))
 		return data
 	}
 }

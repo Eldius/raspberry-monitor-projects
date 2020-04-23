@@ -1,0 +1,5 @@
+host: 192.168.100.14
+port: 1883
+user: user
+pass: pass
+clientid: simple-client
