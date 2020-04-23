@@ -25,5 +25,15 @@ jobs:
     - name: Test Network Monitor
       run: cd raspberry-network-monitor ; go test -v ./...
 
-    - name: Build Network Monitor
-      run: cd raspberry-network-monitor ; go build -v .
+    - name: Build Network Monitor (Linux amd64)
+      run: cd raspberry-network-monitor ; go build -v -o bin/network-monitor.linux.amd64 .
+      env:
+        GOOS: linux
+        GOARCH: amd64
+
+    - name: Build Network Monitor (Raspbian - Raspberry Pi)
+      run: cd raspberry-network-monitor ; go build -v -o bin/network-monitor.linux.arm5 .
+      env:
+        GOOS: linux
+        GOARCH: arm
+        GOARM: 5
