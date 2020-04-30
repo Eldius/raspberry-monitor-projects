@@ -10,8 +10,8 @@ import (
 )
 
 const (
-	logFolder = "~/.raspberry-cli"
-	logFile   = "~/.raspberry-cli/network-monitor.log"
+	logFolder = "~/.network-monitor"
+	logFile   = "~/.network-monitor/network-monitor.log"
 )
 
 func init() {
