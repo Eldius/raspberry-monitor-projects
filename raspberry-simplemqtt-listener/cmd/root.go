@@ -66,8 +66,8 @@ func init() {
 	// will be global for your application.
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.raspberry-simplemqtt-listener.yaml)")
-	rootCmd.Flags().StringVarP(&user, "user", "u", "user", "Broker username")
-	rootCmd.Flags().StringVarP(&pass, "pass", "W", "pass", "Broker username")
+	rootCmd.Flags().StringVarP(&user, "user", "u", "", "Broker username")
+	rootCmd.Flags().StringVarP(&pass, "pass", "W", "", "Broker password")
 	rootCmd.Flags().StringVarP(&host, "server", "s", "127.0.0.1", "Broker username")
 	rootCmd.Flags().StringVarP(&port, "port", "p", "1883", "Broker username")
 
