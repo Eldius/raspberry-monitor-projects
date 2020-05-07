@@ -17,8 +17,11 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
+	"net/http"
 	"os"
+
+	"github.com/Eldius/raspberry-monitor-projects/raspberry-simplemqtt-listener/routes"
+	"github.com/spf13/cobra"
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
@@ -38,7 +41,10 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
+	Run: func(cmd *cobra.Command, args []string) {
+		routes.LoadRoutes()
+		http.ListenAndServe(fmt.Sprintf(":%d", appPort), nil)
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -49,6 +55,8 @@ func Execute() {
 		os.Exit(1)
 	}
 }
+
+var appPort int
 
 func init() {
 	cobra.OnInitialize(initConfig)
@@ -61,7 +69,7 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.Flags().IntVarP(&appPort, "port", "p", 8080, "Server pot to listen")
 }
 
 // initConfig reads in config file and ENV variables if set.
