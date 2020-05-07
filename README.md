@@ -14,3 +14,4 @@ A project to monitor my internet and network health
 
 - [Bintray REST API](https://bintray.com/docs/api/)
 - [Artifactory & Bintray REST examples](https://gist.github.com/perfecto25/8ad606be41b1d7b4bb6a0327f4c91fd8)
+- [zianwar/go-websocket-broadcast - server](https://github.com/zianwar/go-websocket-broadcast/tree/master/server)
