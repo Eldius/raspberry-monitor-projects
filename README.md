@@ -10,6 +10,24 @@ A project to monitor my internet and network health
 
 [raspberry-network-monitor/README.md](raspberry-network-monitor/README.md)
 
+## raspberry-simplemqtt-listener ##
+
+A project to monitor my internet and network health
+
+![raspberry-simplemqtt-listener](https://github.com/Eldius/raspberry-monitor-projects/workflows/raspberry-simplemqtt-listener-go/badge.svg)
+
+[raspberry-simplemqtt-listener/README.md](raspberry-simplemqtt-listener/README.md)
+
+## Latest version links ##
+
+### simplemqtt-listener ###
+
+[ ![Download](https://api.bintray.com/packages/eldius/raspberry-tools/simplemqtt-listener/images/download.svg) ](https://bintray.com/eldius/raspberry-tools/simplemqtt-listener/_latestVersion)
+
+### network-monitor ###
+
+[ ![Download](https://api.bintray.com/packages/eldius/raspberry-tools/network-monitor/images/download.svg) ](https://bintray.com/eldius/raspberry-tools/network-monitor/_latestVersion)
+
 ## useful links ##
 
 - [Bintray REST API](https://bintray.com/docs/api/)
