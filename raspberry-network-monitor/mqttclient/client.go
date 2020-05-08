@@ -34,7 +34,7 @@ func SendPingResponse(p network.PingResponse, cfg config.MQTTConfig) {
 	}
 	fmt.Println("Sample Publisher Started")
 	fmt.Println("---- doing publish ----")
-	token := client.Publish(cfg.Topic, cfg.Qos, false, serialize(p))
+	token := client.Publish(cfg.Topic, cfg.Qos, false, serialize(p.Convert()))
 	token.Wait()
 
 	client.Disconnect(250)
