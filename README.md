@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Eldius/raspberry-monitor-projects) 
+
 # raspberry-monitor-projects #
 
 A group of projects to run in my Raspberry Pi
