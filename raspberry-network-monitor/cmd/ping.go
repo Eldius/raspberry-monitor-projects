@@ -23,7 +23,7 @@ var pingCmd = &cobra.Command{
 			mqttclient.SendPingResponses(pingResponses, cfg.MQTT)
 		}
 		out := "---\nping called\nresponses:\n"
-		out += fmt.Sprintf("execution time: %\v", time.Now())
+		out += fmt.Sprintf("execution time: %s\n", time.Now().Format(time.UnixDate))
 		for _, r := range pingResponses {
 			out += fmt.Sprintf("- host: %s\n", r.Host)
 			out += fmt.Sprintf("    avg: %d ms\n", r.AvgTime)
