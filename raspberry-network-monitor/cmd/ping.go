@@ -7,6 +7,7 @@ import (
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/config"
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/mqttclient"
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/network"
+	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/logger"
 	"github.com/spf13/cobra"
 )
 
@@ -16,7 +17,7 @@ var pingCmd = &cobra.Command{
 	Short: "It just ping hosts",
 	Long:  `It just ping hosts.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("executing ping...")
+		logger.Println("executing ping...")
 		cfg := config.AppConfig()
 		pingResponses := network.MultiplePingParallel(cfg.PingHosts, cfg.QtdPackets)
 		if *publish {
@@ -32,7 +33,7 @@ var pingCmd = &cobra.Command{
 			out += fmt.Sprintf("    jitter: %d ms\n", r.Jitter)
 		}
 		out += "---\n\n\n"
-		fmt.Println(out)
+		logger.Println(out)
 	},
 }
 

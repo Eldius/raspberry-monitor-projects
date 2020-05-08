@@ -3,6 +3,7 @@ package mqttclient
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/config"
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/logger"
@@ -32,14 +33,14 @@ func SendPingResponse(p network.PingResponse, cfg config.MQTTConfig) {
 	if token := client.Connect(); token.Wait() && token.Error() != nil {
 		panic(token.Error())
 	}
-	fmt.Println("Sample Publisher Started")
-	fmt.Println("---- doing publish ----")
+	log.Println("Sample Publisher Started")
+	log.Println("---- doing publish ----")
 	topic := fmt.Sprintf("%s/%s", cfg.Topic, p.Host)
 	token := client.Publish(topic, cfg.Qos, false, serialize(p.Convert()))
 	token.Wait()
 
 	client.Disconnect(250)
-	fmt.Println("Sample Publisher Disconnected")
+	log.Println("Sample Publisher Disconnected")
 }
 
 /*
