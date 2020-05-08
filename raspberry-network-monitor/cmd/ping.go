@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/config"
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/mqttclient"
@@ -22,6 +23,7 @@ var pingCmd = &cobra.Command{
 			mqttclient.SendPingResponses(pingResponses, cfg.MQTT)
 		}
 		out := "---\nping called\nresponses:\n"
+		out += fmt.Sprintf("execution time: %\v", time.Now())
 		for _, r := range pingResponses {
 			out += fmt.Sprintf("- host: %s\n", r.Host)
 			out += fmt.Sprintf("    avg: %d ms\n", r.AvgTime)
@@ -29,7 +31,7 @@ var pingCmd = &cobra.Command{
 			out += fmt.Sprintf("    max: %d ms\n", r.MaxTime)
 			out += fmt.Sprintf("    jitter: %d ms\n", r.Jitter)
 		}
-		out += "---\n"
+		out += "---\n\n\n"
 		fmt.Println(out)
 	},
 }
