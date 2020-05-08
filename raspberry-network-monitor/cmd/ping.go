@@ -21,7 +21,16 @@ var pingCmd = &cobra.Command{
 		if *publish {
 			mqttclient.SendPingResponses(pingResponses, cfg.MQTT)
 		}
-		fmt.Printf("---\nping called\nresponses:\n%v\n---\n", pingResponses)
+		out := "---\nping called\nresponses:\n"
+		for _, r := range pingResponses {
+			out += fmt.Sprintf("- host: %s\n", r.Host)
+			out += fmt.Sprintf("    avg: %d ms\n", r.AvgTime)
+			out += fmt.Sprintf("    min: %d ms\n", r.MinTime)
+			out += fmt.Sprintf("    max: %d ms\n", r.MaxTime)
+			out += fmt.Sprintf("    jitter: %d ms\n", r.Jitter)
+		}
+		out += "---\n"
+		fmt.Println(out)
 	},
 }
 
