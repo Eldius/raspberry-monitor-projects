@@ -55,8 +55,10 @@ func (r *PingResponse) Convert() PingResponseTO {
 	}
 }
 
-
-func convertToMili(d time.Duration) int64 {
+/*
+ConvertToMili converts time.Duration to milisseconds int64
+*/
+func ConvertToMili(d time.Duration) int64 {
 	return int64(d / time.Millisecond)
 }
 
