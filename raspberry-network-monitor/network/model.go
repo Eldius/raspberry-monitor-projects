@@ -25,15 +25,15 @@ type PingResponse struct {
 PingResponseTO is a converted type to publish
 */
 type PingResponseTO struct {
-	AvgTime int64
-	MinTime int64
-	MaxTime int64
+	AvgTime float64
+	MinTime float64
+	MaxTime float64
 	Jitter  int64
 
 	PacketsSent     int
 	PacketsReceived int
 
-	ResponseTimes []int64
+	ResponseTimes []float64
 	Host          string
 	ExecutionTime time.Time
 }
@@ -43,9 +43,9 @@ Convert converts the respon se to a TO value
 */
 func (r *PingResponse) Convert() PingResponseTO {
 	return PingResponseTO{
-		AvgTime:         convertToMili(r.AvgTime),
-		MinTime:         convertToMili(r.MinTime),
-		MaxTime:         convertToMili(r.MaxTime),
+		AvgTime:         ConvertToMili(r.AvgTime),
+		MinTime:         ConvertToMili(r.MinTime),
+		MaxTime:         ConvertToMili(r.MaxTime),
 		Jitter:          r.Jitter,
 		PacketsSent:     r.PacketsSent,
 		PacketsReceived: r.PacketsReceived,
@@ -58,14 +58,14 @@ func (r *PingResponse) Convert() PingResponseTO {
 /*
 ConvertToMili converts time.Duration to milisseconds int64
 */
-func ConvertToMili(d time.Duration) int64 {
-	return int64(d / time.Millisecond)
+func ConvertToMili(d time.Duration) float64 {
+	return float64(d / time.Millisecond)
 }
 
-func convertAllToMili(ds []time.Duration) []int64 {
-	var parsedValues []int64
+func convertAllToMili(ds []time.Duration) []float64 {
+	var parsedValues []float64
 	for _, d := range ds {
-		parsedValues = append(parsedValues, int64(d / time.Millisecond))
+		parsedValues = append(parsedValues, ConvertToMili(d))
 	}
 	return parsedValues
 }

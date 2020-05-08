@@ -26,9 +26,9 @@ var pingCmd = &cobra.Command{
 		out += fmt.Sprintf("execution time: %s\n", time.Now().Format(time.UnixDate))
 		for _, r := range pingResponses {
 			out += fmt.Sprintf("- host: %s\n", r.Host)
-			out += fmt.Sprintf("    avg: %d ms\n", network.ConvertToMili(r.AvgTime))
-			out += fmt.Sprintf("    min: %d ms\n", network.ConvertToMili(r.MinTime))
-			out += fmt.Sprintf("    max: %d ms\n", network.ConvertToMili(r.MaxTime))
+			out += fmt.Sprintf("    avg: %f ms\n", network.ConvertToMili(r.AvgTime))
+			out += fmt.Sprintf("    min: %f ms\n", network.ConvertToMili(r.MinTime))
+			out += fmt.Sprintf("    max: %f ms\n", network.ConvertToMili(r.MaxTime))
 			out += fmt.Sprintf("    jitter: %d ms\n", r.Jitter)
 		}
 		out += "---\n\n\n"
