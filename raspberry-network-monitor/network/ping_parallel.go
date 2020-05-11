@@ -24,7 +24,7 @@ func MultiplePingParallel(hosts []string, packets int) []PingResponse {
 	s := make([]PingResponse, 0)
 	for {
 		value, ok := <-ch
-		if ok == false {
+		if !ok {
 			break
 		}
 		s = append(s, value)
