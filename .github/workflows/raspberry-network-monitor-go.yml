@@ -26,13 +26,23 @@ jobs:
       run: cd raspberry-network-monitor ; go test -v ./...
 
     - name: Build Network Monitor (Linux amd64)
-      run: cd raspberry-network-monitor ; go build -v -o bin/network-monitor.linux.amd64 .
+      run: |
+        cd raspberry-network-monitor ; \
+        go build -v \
+        -ldflags \
+        "-X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.buildDate=$(date +"%Y-%m-%d %H:%M:%S")' -X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.gitCommit=$(git log -n 1 --format=%h)'" \
+        -o bin/network-monitor.linux.amd64 .
       env:
         GOOS: linux
         GOARCH: amd64
 
     - name: Build Network Monitor (Raspbian - Raspberry Pi)
-      run: cd raspberry-network-monitor ; go build -v -o bin/network-monitor.linux.arm .
+      run: |
+        cd raspberry-network-monitor ; \
+        go build -v \
+        -ldflags \
+        "-X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.buildDate=$(date +"%Y-%m-%d %H:%M:%S")' -X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.gitCommit=$(git log -n 1 --format=%h)'" \
+        -o bin/network-monitor.linux.arm .
       env:
         GOOS: linux
         GOARCH: arm
