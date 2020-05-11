@@ -25,7 +25,7 @@ import (
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Shows version and/or build time information",
-	Long: `Shows version and/or build time information.`,
+	Long:  `Shows version and/or build time information.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		msg := "---\nnetwork-monitor\n"
 		msg += fmt.Sprintf("- version: %s\n", gitCommit)

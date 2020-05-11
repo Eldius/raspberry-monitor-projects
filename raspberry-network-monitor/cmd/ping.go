@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/config"
+	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/logger"
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/mqttclient"
 	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/network"
-	"github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/logger"
 	"github.com/spf13/cobra"
 )
 
@@ -36,8 +36,6 @@ var pingCmd = &cobra.Command{
 		logger.Println(out)
 	},
 }
-
-
 
 func init() {
 	rootCmd.AddCommand(pingCmd)
