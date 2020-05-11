@@ -30,7 +30,7 @@ jobs:
         cd raspberry-simplemqtt-listener ; \
         go build -v \
           -ldflags \
-          "-X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.buildDate=$(date +"%Y-%m-%d %H:%M:%S")' -X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.gitCommit=$(git log -n 1 --format=%h)'" \
+          "-X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.buildDate=$(date +"%Y-%m-%dT%H:%M:%S%:z")' -X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.gitCommit=$(git log -n 1 --format=%h)'" \
           -o bin/simplemqtt-listener.linux.amd64 .
       env:
         GOOS: linux
@@ -41,7 +41,7 @@ jobs:
         cd raspberry-simplemqtt-listener ; \
         go build -v \
           -ldflags \
-          "-X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.buildDate=$(date +"%Y-%m-%d %H:%M:%S")' -X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.gitCommit=$(git log -n 1 --format=%h)'" \
+          "-X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.buildDate=$(date +"%Y-%m-%dT%H:%M:%S%:z")' -X 'github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor/cmd.gitCommit=$(git log -n 1 --format=%h)'" \
           -o bin/simplemqtt-listener.linux.arm .
       env:
         GOOS: linux
