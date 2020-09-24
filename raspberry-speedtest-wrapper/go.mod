@@ -1,4 +1,4 @@
-module github.com/Eldius/raspberry-monitor-projects/raspberry-network-monitor
+module github.com/Eldius/raspberry-monitor-projects/raspberry-speedtest-wrapper
 
 go 1.14
 
